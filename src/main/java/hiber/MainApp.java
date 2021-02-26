@@ -33,6 +33,15 @@ public class MainApp {
          System.out.println();
       }
 
+      List<Car> cars = car.listCars();
+      for (Car car2 : cars) {
+         System.out.println("Id = "+car2.getId());
+         System.out.println("Model = "+car2.getModel());
+         System.out.println();
+      }
+
+
+
 
 
       context.close();
