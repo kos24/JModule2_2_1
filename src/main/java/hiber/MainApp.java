@@ -18,15 +18,21 @@ public class MainApp {
       UserService userService = context.getBean(UserService.class);
       CarDao car = context.getBean(CarDao.class);
       User user1 = new User("User1", "Lastname1", "user1@mail.ru");
-//      Car car1 = new Car("Jeep", 5);
-      user1.setUserCar(new Car("BMW", 3));
+      user1.setUserCar(new Car("BMW", 320));
       userService.add(user1);
-//      car.add(new Car("Toyota",1));
+      User user2 = new User("User2", "Lastname2", "user2@mail.ru");
+      user2.setUserCar(new Car("Toyota", 245));
+      userService.add(user2);
+      User user3 = new User("User2", "Lastname2", "user2@mail.ru");
+      user3.setUserCar(new Car("Jeep", 35));
+      userService.add(user3);
+      User user4 = new User("User2", "Lastname2", "user2@mail.ru");
+      user4.setUserCar(new Car("BMW", 525));
+      userService.add(user4);
 
 //      userService.add(new User("User2", "Lastname2", "user2@mail.ru"));
 //      userService.add(new User("User3", "Lastname3", "user3@mail.ru"));
 //      userService.add(new User("User4", "Lastname4", "user4@mail.ru"));
-
 
       List<User> users = userService.listUsers();
       for (User user : users) {
@@ -37,22 +43,10 @@ public class MainApp {
          System.out.println("Car = "+user.getUserCar());
          System.out.println();
       }
-      List<User> usersByCar = userService.getUserByCar("BMW",3);
+      List<User> usersByCar = userService.getUserByCar("BMW",525);
       for (User userByCar : usersByCar) {
          System.out.println(userByCar);
       }
-
-      List<Car> cars = car.listCars();
-      for (Car car2 : cars) {
-         System.out.println("Id = "+car2.getId());
-         System.out.println("Model = "+car2.getModel());
-         System.out.println();
-      }
-
-
-
-
-
       context.close();
    }
 }
